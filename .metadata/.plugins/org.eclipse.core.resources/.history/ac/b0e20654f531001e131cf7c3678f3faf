@@ -1,0 +1,24 @@
+ /******************************************************************************
+ *
+ * Project : On Demand Traffic Light
+ *
+ * File Name: main.c
+ *
+ * Description:
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include<avr/io.h>
+#include"traffic_light.h"
+
+int main()
+{
+	TrafficLight_init();
+	SREG|=(1<<7);
+	for(;;)
+	{
+
+	}
+}

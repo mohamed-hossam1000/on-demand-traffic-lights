@@ -1,0 +1,27 @@
+ /******************************************************************************
+ *
+ * Module: Seven Segment
+ *
+ * File Name: seven_segment.h
+ *
+ * Description: Header file for seven segment driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#ifndef SEVEN_SEGMENT_H_
+#define SEVEN_SEGMENT_H_
+
+ /******************************************************************************
+ *								  Definitions
+ *******************************************************************************/
+#define SEVEN_SEG_PORT_ID PORTA_ID
+#define SEVEN_SEG_PIN_ID  PIN0_ID
+ /******************************************************************************
+ *							 Functions Declarations
+ *******************************************************************************/
+
+void SevenSeg_init();
+void SevenSeg_displayNumber(uint8 num);
+#endif /* SEVEN_SEGMENT_H_ */

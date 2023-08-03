@@ -1,0 +1,33 @@
+ /******************************************************************************
+ *
+ * Module: Seven Segment
+ *
+ * File Name: seven_segment.c
+ *
+ * Description: sourse file for seven segment driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include"seven_segment.h"
+#include"gpio.h"
+
+void SevenSeg_init()
+{
+	uint8 i;
+	for(i=0; i<4; i++)
+	{
+		GPIO_setupPinDirection(SEVEN_SEG_PORT_ID, SEVEN_SEG_PIN_ID+i, PIN_OUTPUT);
+		GPIO_writePin(SEVEN_SEG_PORT_ID, SEVEN_SEG_PIN_ID+i, LOGIC_LOW);
+	}
+}
+
+void SevenSeg_displayNumber(uint8 num)
+{
+	uint8 i;
+	for(i=0; i<4; i++)
+	{
+		GPIO_writePin(SEVEN_SEG_PORT_ID, SEVEN_SEG_PIN_ID+i, num & (1 << i));
+	}
+}

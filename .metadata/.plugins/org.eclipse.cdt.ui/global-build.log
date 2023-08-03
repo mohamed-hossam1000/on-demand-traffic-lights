@@ -1,0 +1,38 @@
+00:49:38 **** Incremental Build of configuration Debug for project on_demand_traffic_light ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:14:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building file: ../traffic_light.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"traffic_light.d" -MT"traffic_light.o" -c -o "traffic_light.o" "../traffic_light.c"
+Finished building: ../traffic_light.c
+ 
+Building target: on_demand_traffic_light.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,on_demand_traffic_light.map -mmcu=atmega32 -o "on_demand_traffic_light.elf"  ./button.o ./gpio.o ./main.o ./seven_segment.o ./timer1.o ./traffic_light.o   
+Finished building target: on_demand_traffic_light.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S on_demand_traffic_light.elf  >"on_demand_traffic_light.lss"
+Finished building: on_demand_traffic_light.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 on_demand_traffic_light.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6222 bytes (19.0% Full)
+(.text + .data + .bootloader)
+
+Data:         12 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

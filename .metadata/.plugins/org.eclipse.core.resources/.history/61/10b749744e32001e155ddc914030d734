@@ -1,0 +1,36 @@
+ /******************************************************************************
+ *
+ * Project : On Demand Traffic Light
+ *
+ * File Name: main.c
+ *
+ * Description:
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include<avr/io.h>
+#include<util/delay.h>
+#include"traffic_light.h"
+#include"button.h"
+
+int main()
+{
+	/* initializing the traffic lights and button modules */
+	TrafficLight_init();
+	Button_init();
+	/* enabling interrupts through the global I bit */
+	SREG|=(1<<7);
+	for(;;)
+	{
+		if(Button_getStatus() == BUTTON_PRESSED)
+		{
+			_delay_ms(30);
+			if(Button_getStatus() == BUTTON_PRESSED)
+			{
+				TrafficLight_switchLight();
+			}
+		}
+	}
+}

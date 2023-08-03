@@ -1,0 +1,33 @@
+/*******************************************************************************
+ *
+ * Module: traffic light
+ *
+ * File Name: traffic_light.c
+ *
+ * Description: source file for traffic light driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include"traffic_light.h"
+#include"timer1.h"
+#include"gpio.h"
+
+static void tick();
+
+void TrafficLight_init()
+{
+	Timer1_ConfigType timerConfig;
+	timerConfig.mode = COMPARE;
+	timerConfig.prescaler = F_CPU_256;
+	timerConfig.compare_value = 62500;
+	timerConfig.initial_value = 0;
+	Timer1_setCallBack(tick);
+	Timer1_init(&timerConfig);
+}
+
+static void tick()
+{
+
+}

@@ -1,0 +1,76 @@
+/*******************************************************************************
+ *
+ * Module: traffic light
+ *
+ * File Name: traffic_light.c
+ *
+ * Description: source file for traffic light driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include"traffic_light.h"
+#include"timer1.h"
+#include"gpio.h"
+#include"seven_segment.h"
+
+static void tick();
+
+static volatile uint8 g_ticks = WAITING_TIME;
+static volatile uint8 g_currentLight = RED;
+
+void TrafficLight_init()
+{
+	Timer1_ConfigType timerConfig;
+	timerConfig.mode = COMPARE;
+	timerConfig.prescaler = F_CPU_256;
+	timerConfig.compare_value = 62500;
+	timerConfig.initial_value = 0;
+	Timer1_setCallBack(tick);
+
+	GPIO_setupPinDirection(RED_PORT_ID, RED_PIN_ID, PIN_OUTPUT);
+	GPIO_setupPinDirection(YELLOW_PORT_ID, YELLOW_PIN_ID, PIN_OUTPUT);
+	GPIO_setupPinDirection(GREEN_PORT_ID, GREEN_PIN_ID, PIN_OUTPUT);
+
+	SevenSeg_init();
+	SevenSeg_displayNumber(g_ticks);
+
+	Timer1_init(&timerConfig);
+}
+
+static void tick()
+{
+	g_ticks--;
+
+	if(g_ticks == 0)
+	{
+		g_ticks = WAITING_TIME;
+		switchLight();
+		SevenSeg_displayNumber(g_ticks);
+	}
+
+	if(g_currentLight == YELLOW)
+	{
+		GPIO_togglePin(YELLOW_PORT_ID, YELLOW_PIN_ID);
+	}
+}
+
+void TrafficLight_switchLight()
+{
+	switch(g_currentLight)
+	{
+	case RED:
+		GPIO_writePin(RED_PORT_ID, RED_PIN_ID, LIGHT_OFF);
+		GPIO_writePin(GREEN_PORT_ID, GREEN_PIN_ID, LIGHT_ON);
+		break;
+	case GREEN:
+		GPIO_writePin(GREEN_PORT_ID, GREEN_PIN_ID, LIGHT_OFF);
+		GPIO_writePin(YELLOW_PORT_ID, YELLOW_PIN_ID, LIGHT_ON);
+		break;
+	case YELLOW:
+		GPIO_writePin(YELLOW_PORT_ID, YELLOW_PIN_ID, LIGHT_OFF);
+		GPIO_writePin(RED_PORT_ID, RED_PIN_ID, LIGHT_ON);
+		break;
+	}
+}

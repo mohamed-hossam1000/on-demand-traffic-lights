@@ -1,0 +1,18 @@
+22:57:03 **** Incremental Build of configuration Debug for project on demand traffic light ****
+make all 
+Building file: ../traffic_light.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"traffic_light.d" -MT"traffic_light.o" -c -o "traffic_light.o" "../traffic_light.c"
+Finished building: ../traffic_light.c
+ 
+Building target: on demand traffic light.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,on demand traffic light.map -mmcu=atmega32 -o "on demand traffic light.elf"  ./gpio.o ./main.o ./seven_segment.o ./timer1.o ./traffic_light.o   
+avr-gcc.exe: demand: No such file or directory
+avr-gcc.exe: traffic: No such file or directory
+avr-gcc.exe: light.map: No such file or directory
+make: *** [on demand traffic light.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+22:57:03 Build Failed. 1 errors, 0 warnings. (took 184ms)
+

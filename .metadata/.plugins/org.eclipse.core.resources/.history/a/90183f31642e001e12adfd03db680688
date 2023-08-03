@@ -1,0 +1,18 @@
+/*******************************************************************************
+ *
+ * Module: traffic light
+ *
+ * File Name: traffic_light.h
+ *
+ * Description: Header file for traffic light driver
+ *
+ * Author: Mohamed Hossam\
+ *
+ *******************************************************************************/
+
+#ifndef TRAFFIC_LIGHT_H_
+#define TRAFFIC_LIGHT_H_
+
+
+
+#endif /* TRAFFIC_LIGHT_H_ */

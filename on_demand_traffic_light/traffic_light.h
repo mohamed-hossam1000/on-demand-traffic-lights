@@ -1,0 +1,66 @@
+/*******************************************************************************
+ *
+ * Module: traffic light
+ *
+ * File Name: traffic_light.h
+ *
+ * Description: Header file for traffic light driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#ifndef TRAFFIC_LIGHT_H_
+#define TRAFFIC_LIGHT_H_
+
+#include"std_types.h"
+
+/*******************************************************************************
+ * 							  	  Definitions
+ *******************************************************************************/
+
+/* traffic light pin configuration */
+#define RED_PORT_ID	   PORTC_ID
+#define RED_PIN_ID 	   PIN0_ID
+
+#define YELLOW_PORT_ID PORTC_ID
+#define YELLOW_PIN_ID  PIN1_ID
+
+#define GREEN_PORT_ID  PORTC_ID
+#define GREEN_PIN_ID   PIN2_ID
+
+
+#define LIGHT_ON       LOGIC_LOW
+#define LIGHT_OFF	   LOGIC_HIGH
+
+/* states of the traffic light */
+#define RED			   10
+#define YELLOW		   20
+#define GREEN		   30
+
+/* macros for controlling the time of each state of the traffic light */
+#define GREEN_TIME	  5
+#define YELLOW_TIME   5
+#define RED_TIME  	  5
+
+/* global variable that shows the state of the traffic light */
+extern volatile uint8 TrafficLight_currentLight;
+
+/*******************************************************************************
+ * 							   Functions Declarations
+ *******************************************************************************/
+
+/*
+ * Description :
+ * configure and initialize the timer
+ * initialize the LEDs
+ * initialize the seven segment
+ */
+void TrafficLight_init();
+
+/*
+ * Description : a function to change the light of the traffic lights
+ */
+void TrafficLight_switchLight();
+
+#endif /* TRAFFIC_LIGHT_H_ */

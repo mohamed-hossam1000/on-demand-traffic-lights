@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;on demand traffic light&apos; to &apos;on_demand_traffic_light&apos;" description="Rename resource &apos;on demand traffic light&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/on demand traffic light" name="on_demand_traffic_light" stamp="1690923461485" updateReferences="true"/>
+</session>

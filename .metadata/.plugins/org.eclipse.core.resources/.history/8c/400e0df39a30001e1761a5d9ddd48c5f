@@ -1,0 +1,14 @@
+ /******************************************************************************
+ *
+ * Module: Seven Segment
+ *
+ * File Name: seven_segment.c
+ *
+ * Description: sourse file for seven segment driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#include"seven_segment.h"
+#include"gpio.h"

@@ -1,0 +1,18 @@
+ /******************************************************************************
+ *
+ * Module: Seven Segment
+ *
+ * File Name: seven_segment.h
+ *
+ * Description: Header file for seven segment driver
+ *
+ * Author: Mohamed Hossam
+ *
+ *******************************************************************************/
+
+#ifndef SEVEN_SEGMENT_H_
+#define SEVEN_SEGMENT_H_
+
+
+
+#endif /* SEVEN_SEGMENT_H_ */
